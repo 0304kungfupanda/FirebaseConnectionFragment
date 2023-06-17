@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingTop="60dp"
+    tools:context=".InsertMultipleData">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        >
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/EdtTxt1"
+            android:hint="Enter Subject.."
+            android:textSize="25sp"
+            android:textColor="@color/black"/>
+
+        <ImageButton
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_baseline_adf_scanner_24"
+            android:layout_gravity="top"
+            android:id="@+id/imgBtn1"
+            />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:padding="10dp"
+        >
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/EdtTxt2"
+            android:hint="Enter Question Number.."
+            android:textSize="25sp"
+            android:textColor="@color/black"/>
+
+        <ImageButton
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_baseline_adf_scanner_24"
+            android:layout_gravity="top"
+            android:id="@+id/imgBtn2"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:paddingTop="10dp"
+        >
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/EdtTxt3"
+        android:hint="Enter New Question..."
+        android:textSize="25sp"
+        android:textColor="@color/black"/>
+
+        <ImageButton
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_baseline_adf_scanner_24"
+            android:layout_gravity="top"
+            android:id="@+id/imgBtn3"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:paddingTop="10dp"
+        >
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/EdtTxt4"
+            android:hint="Option A"
+            android:textSize="25sp"
+            android:textColor="@color/black"/>
+
+        <ImageButton
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_baseline_adf_scanner_24"
+            android:layout_gravity="top"
+            android:id="@+id/imgBtn4"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:paddingTop="10dp"
+        >
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/EdtTxt5"
+            android:hint="Option B"
+            android:textSize="25sp"
+            android:textColor="@color/black"/>
+
+        <ImageButton
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_baseline_adf_scanner_24"
+            android:layout_gravity="top"
+            android:id="@+id/imgBtn5"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:paddingTop="10dp"
+        >
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/EdtTxt6"
+            android:hint="Option C"
+            android:textSize="25sp"
+            android:textColor="@color/black"/>
+
+        <ImageButton
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_baseline_adf_scanner_24"
+            android:layout_gravity="top"
+            android:id="@+id/imgBtn6"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:paddingTop="10dp"
+        >
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/EdtTxt7"
+            android:hint="Option D"
+            android:textSize="25sp"
+            android:textColor="@color/black"/>
+
+        <ImageButton
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_baseline_adf_scanner_24"
+            android:layout_gravity="top"
+            android:id="@+id/imgBtn7"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:paddingTop="10dp"
+        >
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/EdtTxt8"
+            android:hint="Enter Correct Option"
+            android:textSize="25sp"
+            android:textColor="@color/black"/>
+
+        <ImageButton
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_baseline_adf_scanner_24"
+            android:layout_gravity="top"
+            android:id="@+id/imgBtn8"
+            />
+
+    </LinearLayout>
+
+
+
+
+
+
+
+<!--    <EditText-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/EdtTxt2"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:hint="Enter Name"-->
+<!--        android:textSize="25sp"-->
+<!--        android:textColor="@color/black"/>-->
+
+<!--    <EditText-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/EdtTxt3"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:hint="Course"-->
+<!--        android:textSize="25sp"-->
+<!--        android:textColor="@color/black"/>-->
+
+<!--    <EditText-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/EdtTxt4"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:hint="Duration"-->
+<!--        android:textSize="25sp"-->
+<!--        android:textColor="@color/black"/>-->
+
+    <Button
+        android:id="@+id/BtnInsertData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Insert Data to Firebase"
+        android:textSize="20sp"
+        android:textAllCaps="false"
+        android:onClick="imprint"
+        />
+
+</LinearLayout>
