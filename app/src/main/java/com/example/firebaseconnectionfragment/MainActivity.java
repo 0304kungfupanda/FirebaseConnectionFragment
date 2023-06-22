@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent iNext = new Intent(MainActivity.this,InsertMultipleData.class);
                 startActivity(iNext);
             }
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         root.setValue(txt1.getText().toString());
         txt1.setText("");
-        Toast.makeText(getApplicationContext(), "Inserted", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Inserted Data", Toast.LENGTH_SHORT).show();
 
     }
 

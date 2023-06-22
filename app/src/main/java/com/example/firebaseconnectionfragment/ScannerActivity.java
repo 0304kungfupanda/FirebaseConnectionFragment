@@ -4,16 +4,15 @@ package com.example.firebaseconnectionfragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Point;
-import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -33,16 +32,18 @@ import java.io.IOException;
 
 public class ScannerActivity extends AppCompatActivity {
 
-    Button btnClear, btnCopy, btnGetImage, btnHindiText, btnSaveText;
+    ImageButton btnClear, btnCopy, btnGetImage, btnHindiText, btnSaveText;
     EditText recognizedText;
 
     Uri imageUri;
+
+    ImageView imageScanner;
 
     TextRecognizer textRecognizer;
     TextRecognizer textRecognizerDevanagri;
     TextRecognizer textRecognizerEnglish;
 
-    Boolean english=true;
+    Boolean isEnglish =true;
 
 
     String scannedText;
@@ -59,6 +60,7 @@ public class ScannerActivity extends AppCompatActivity {
         recognizedText =findViewById(R.id.edtRecognizedText);
         btnHindiText = findViewById(R.id.btnHindiText);
         btnSaveText = findViewById(R.id.btnSaveText);
+        imageScanner = findViewById(R.id.imageScanner);
 
         //textRecognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
         textRecognizerEnglish = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
@@ -76,6 +78,8 @@ public class ScannerActivity extends AppCompatActivity {
                         .compress(1024)			//Final image size will be less than 1 MB(Optional)
                         .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
                         .start();
+
+               // CropImage.activity().setGuidelines(CropImageView.Guidelines.ON).start(ScannerActivity.this);
             }
         });
 
@@ -83,6 +87,7 @@ public class ScannerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String text = recognizedText.getText().toString();
+                Toast.makeText(ScannerActivity.this, "Text copied", Toast.LENGTH_SHORT).show();
 
                 if (text.isEmpty()){
                     Toast.makeText(ScannerActivity.this, "No Text to copy", Toast.LENGTH_SHORT).show();
@@ -103,23 +108,22 @@ public class ScannerActivity extends AppCompatActivity {
         });
 
         btnHindiText.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
-                if (english){
-                    english = false;
-                    btnHindiText.setText("English");
-                    btnGetImage.setText("Capture Image Hindi");
+                if (isEnglish){
+                    isEnglish = false;
+                    btnHindiText.setImageDrawable(ContextCompat.getDrawable(ScannerActivity.this,R.drawable.eng_letter_h));
+                   // btnGetImage.setText("Capture Image Hindi");
                     textRecognizer = textRecognizerDevanagri;
 
 
                 }else {
-                    english = true;
-                    btnHindiText.setText("Hindi");
-                    btnGetImage.setText("Capture Image English");
+                    isEnglish = true;
+                    btnHindiText.setImageDrawable(ContextCompat.getDrawable(ScannerActivity.this,R.drawable.letter_e));
+                    //btnGetImage.setText("Capture Image English");
                     textRecognizer = textRecognizerEnglish;
-
-
 
 
                 }
@@ -127,8 +131,23 @@ public class ScannerActivity extends AppCompatActivity {
             }
         });
 
+        btnClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (recognizedText!=null){
+                    recognizedText.setText("");
+                }
+            }
+        });
+
 
     }
+
+
+
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -141,6 +160,8 @@ public class ScannerActivity extends AppCompatActivity {
                 imageUri = data.getData();
 
                 recognizeText();
+                //imageScanner.setVisibility(View.GONE);
+
 
             }else {
                 Toast.makeText(this, "Imaged not selected", Toast.LENGTH_SHORT).show();
@@ -149,6 +170,8 @@ public class ScannerActivity extends AppCompatActivity {
         }
     }
 
+
+
     private void recognizeText() {
 
         if (imageUri!=null){
@@ -156,16 +179,17 @@ public class ScannerActivity extends AppCompatActivity {
             try {
                 InputImage inputImage = InputImage.fromFilePath(this,imageUri);
 
+
                 Task<Text> result =
                         textRecognizer.process(inputImage)
                                 .addOnSuccessListener(new OnSuccessListener<Text>() {
                                     @Override
                                     public void onSuccess(Text text) {
 
-                                        String recogniseText = text.getText();
-                                        processText(text);
+                                        String recogniseText1 = text.getText();
 
-                                        recognizedText.setText(scannedText);
+
+                                        recognizedText.setText(recogniseText1);
 
 
                                     }
@@ -185,33 +209,7 @@ public class ScannerActivity extends AppCompatActivity {
     }
 
 
-    private void processText(Text text1){
-
-        scannedText = text1.getText();
-
-//        for (Text.TextBlock block : text1.getTextBlocks()) {
-//            String blockText = block.getText();
-//            Point[] blockCornerPoints = block.getCornerPoints();
-//            Rect blockFrame = block.getBoundingBox();
-//            for (Text.Line line : block.getLines()) {
-//                String lineText = line.getText();
-//                Point[] lineCornerPoints = line.getCornerPoints();
-//                Rect lineFrame = line.getBoundingBox();
-//                for (Text.Element element : line.getElements()) {
-//                    String elementText = element.getText();
-//                    Point[] elementCornerPoints = element.getCornerPoints();
-//                    Rect elementFrame = element.getBoundingBox();
-//                    for (Text.Symbol symbol : element.getSymbols()) {
-//                        String symbolText = symbol.getText();
-//                        scannedText += symbolText;
-//                        Point[] symbolCornerPoints = symbol.getCornerPoints();
-//                        Rect symbolFrame = symbol.getBoundingBox();
-//                    }
-//                }
-//            }
-  //      }
 
 
-    }
 
 }
